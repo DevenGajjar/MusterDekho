@@ -1,56 +1,56 @@
 // class and object basics in dart:
-// class data{
+class data{
 
-// String name = "Deven";
-// int age = 20;
+String name = "Deven";
+int age = 20;
 
-// }
-// void main() {
+}
+void main() {
 
-//   data d = data(); // classname obj_name = classname();
+  data d = data(); // classname obj_name = classname();
 
-//   print("Name: ${d.name}");
-//   print("Age: ${d.age}");
-// }
+  print("Name: ${d.name}");
+  print("Age: ${d.age}");
+}
 
 // inheritance in dart:
-// class parent{
-//   void display(){
-//     print("This is parent class");
-//   }
-// }
+class parent{
+  void display(){
+    print("This is parent class");
+  }
+}
 
-// class child extends parent{
-//   void show(){
-//     print("This is child class");
-//   }
-// }
+class child extends parent{
+  void show(){
+    print("This is child class");
+  }
+}
 
-// void main() {
+void main() {
 
-//   child c = child();
-//   c.display();
+  child c = child();
+  c.display();
 
 // hybrid inheritance in dart:
 // mixin is special feature that gives same attributes to multiples classes and use 'with' keyword
 
-// mixin Jump {
-//   void jump() {
-//     print("Jumping");
-//   }
-// }
+mixin Jump {
+  void jump() {
+    print("Jumping");
+  }
+}
 
-// class A with Jump {
-//   void display(){
-//     print("This is class A");
-//   }
-// }
+class A with Jump {
+  void display(){
+    print("This is class A");
+  }
+}
 
-// void main() {
-//   A a = A();
-//   a.display();
-//   a.jump();
-// }
+void main() {
+  A a = A();
+  a.display();
+  a.jump();
+}
 
 //# Encapsulation in dart:
 

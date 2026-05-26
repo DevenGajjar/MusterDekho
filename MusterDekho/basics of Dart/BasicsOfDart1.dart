@@ -51,8 +51,6 @@ else{
     print("Weak Password");
   }
 
-
-
 }
 
 
