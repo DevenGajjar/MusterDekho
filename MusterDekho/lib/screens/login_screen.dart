@@ -1,82 +1,82 @@
-import 'package:flutter/material.dart';
-import 'dashboard_screen.dart';
+// import 'package:flutter/material.dart';
+// import 'dashboard_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+// class LoginScreen extends StatelessWidget {
 
-  @override
-  Widget build(BuildContext context) {
+//   @override
+//   Widget build(BuildContext context) {
 
-    return Scaffold(
-      backgroundColor: Colors.black,
+//     return Scaffold(
+//       backgroundColor: Colors.black,
 
-      body: Center(
+//       body: Center(
 
-        child: Padding(
-          padding: EdgeInsets.all(20),
+//         child: Padding(
+//           padding: EdgeInsets.all(20),
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
 
-            children: [
+//             children: [
 
-              Text(
-                "Login",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
-              ),
+//               Text(
+//                 "Login",
+//                 style: TextStyle(
+//                   color: Colors.white,
+//                   fontSize: 30,
+//                 ),
+//               ),
 
-              SizedBox(height: 20),
+//               SizedBox(height: 20),
 
-              TextField(
+//               TextField(
 
-                style: TextStyle(color: Colors.white),
+//                 style: TextStyle(color: Colors.white),
 
-                decoration: InputDecoration(
-                  hintText: "Email",
-                  hintStyle: TextStyle(color: Colors.white54),
+//                 decoration: InputDecoration(
+//                   hintText: "Email",
+//                   hintStyle: TextStyle(color: Colors.white54),
 
-                  border: OutlineInputBorder(),
-                ),
-              ),
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
 
-              SizedBox(height: 20),
+//               SizedBox(height: 20),
 
-              TextField(
-                obscureText: true,
+//               TextField(
+//                 obscureText: true,
 
-                style: TextStyle(color: Colors.white),
+//                 style: TextStyle(color: Colors.white),
 
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: Colors.white54),
+//                 decoration: InputDecoration(
+//                   hintText: "Password",
+//                   hintStyle: TextStyle(color: Colors.white54),
 
-                  border: OutlineInputBorder(),
-                ),
-              ),
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
 
-              SizedBox(height: 20),
+//               SizedBox(height: 20),
 
-              ElevatedButton(
+//               ElevatedButton(
 
-                onPressed: () {
+//                 onPressed: () {
 
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DashboardScreen(),
-                    ),
-                  );
+//                   Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => DashboardScreen(),
+//                     ),
+//                   );
 
-                },
+//                 },
 
-                child: Text("Login"),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//                 child: Text("Login"),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

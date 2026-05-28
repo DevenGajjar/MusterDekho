@@ -1,140 +1,86 @@
-// plearning 1
-
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: Scaffold(
-//       backgroundColor: Colors.black,
-//       body: Center(
-//         child: Text(
-//           'HELLO',
-//           style: TextStyle(fontSize: 40, color: Colors.red),
-//         ),
-//       ),
-//     ),
-//   ));
-// }
-
-
-// leanrning 2
-
-// import 'package:flutter/material.dart';
-
-
-// void main() {
-//   runApp(MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: MyApp(),
-//   ));
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-
-//       body: Stack(
-//         children: [
-
-//           Image.network(
-//             'https://i.pinimg.com/originals/4b/2f/55/4b2f553c1327f251bddd756861fa34e9.jpg',
-//             fit: BoxFit.cover,
-//             width: double.infinity,
-//             height: double.infinity,
-//           ),
-
-//           Positioned(
-//             top: 100,
-//             left: 0,
-//             right: 0,
-//             child: Center(
-//               child: Text(
-//                 '11:11',
-//                 style: TextStyle(
-//                   fontSize: 100,
-//                   color: Color.fromARGB(255, 255, 255, 255),
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ),
-//             ),
-//           ),
-
-//           Positioned(
-//             top: 220,
-//             left: 120,
-//             child: Text(
-//               'Good Morning...',
-//               style: TextStyle(
-//                 fontSize: 25,
-//                 color: Color.fromARGB(255, 255, 255, 255),
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () {
-//           print("Alarm");
-//         },
-//         child: Icon(Icons.alarm),
-//       ),
-//     );
-//   }
-// }
-
-
-// project of front-end only
-
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(
-//     MaterialApp(
-//       debugShowCheckedModeBanner: false,
-
-//       home: Scaffold(
-//         backgroundColor: Colors.black,
-
-//         appBar: AppBar(
-//           backgroundColor: Colors.teal,
-//           title: Text('Main Menu'),
-//           centerTitle: true,
-//         ),
-
-//         bottomNavigationBar: NavigationBar(
-//           backgroundColor: const Color.fromARGB(255, 126, 126, 126),
-//           destinations: [
-//             NavigationDestination(
-//               icon: Icon(Icons.home),
-//               label: 'Home',
-//             ),
-
-//             NavigationDestination(
-//               icon: Icon(Icons.search),
-//               label: 'Search',
-//             ),
-//           ],
-//         ),
-//       ),
-//     ),
-//   );
-// }
-
-// making a login page
+// Whats App Clone
 
 import 'package:flutter/material.dart';
-import 'package:day1/screens/login_screen.dart';
 
 void main() {
-
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      brightness: Brightness.dark,
     ),
-  );
+    home: HomeScreen(),
+  ));
+}
+
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  int selectedIndex = 0;
+
+  var arrName = [
+    'user 1','user 2','user 3','user 4','user 5','user 6','user 7','user 8'
+  ];
+
+  @override
+Widget build(BuildContext context) {
+  return Scaffold(
+
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 47, 179, 65),
+          title: Text("Whats App"),
+          centerTitle: true,
+        ),
+
+      body: ListView.separated(itemBuilder: (context, index) {
+        
+        return ListTile(
+          leading: CircleAvatar(
+            radius: 30,
+              backgroundImage: AssetImage(
+                  'assets/images/profile.png',
+              ),
+             ),
+             
+          title: Text(arrName[index]),
+          subtitle: Text("+91 123-456-789"),
+          trailing: Icon(Icons.more)
+          );
+      },
+      itemCount:arrName.length,
+      separatorBuilder: (context, index) {
+        return Divider( height: 50,);
+      },
+      ),
+      
+
+        bottomNavigationBar: NavigationBar(
+          backgroundColor: Color.fromARGB(255, 126, 126, 126),
+
+            selectedIndex: selectedIndex,
+
+            onDestinationSelected: (int value) {
+                setState(() {
+                selectedIndex = value;
+              });
+            },
+
+          destinations: [
+
+            NavigationDestination(
+              icon: Icon(Icons.chat),
+              label: 'Chat',
+            ),
+
+            NavigationDestination(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+        ),
+    );
+  }
 }
