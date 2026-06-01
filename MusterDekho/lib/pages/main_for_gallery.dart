@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/photos_page.dart';
-import 'pages/profile_page.dart';
-import 'pages/folders_page.dart';
+import 'photos_page.dart';
+import 'profile_page.dart';
+import 'folders_page.dart';
 
 void main() {
   runApp(MyApp());
