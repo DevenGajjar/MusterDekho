@@ -1,397 +1,322 @@
 import 'package:flutter/material.dart';
 
 class spotifyhome extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
 
-      body: SingleChildScrollView(
+      extendBodyBehindAppBar: true,
 
-        child: Container(
+      appBar: AppBar(
 
-          width: double.infinity,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
 
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height,
+        title: Text(
+          "Good Morning...",
+
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
+        ),
 
-          decoration: BoxDecoration(
+        actions: [
 
-            gradient: LinearGradient(
+          Padding(
+            padding: EdgeInsets.only(right: 8),
 
-              begin: Alignment.bottomCenter,
-              end: Alignment.topLeft,
-
-              colors: [
-                Colors.black,
-                Colors.green,
-              ],
-
-              stops: [0.5, 1],
+            child: Icon(
+              Icons.settings,
+              color: Colors.white,
+              size: 30,
             ),
           ),
+        ],
+      ),
 
-          child: Padding(
-            padding: EdgeInsets.all(15),
+      body: Container(
 
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        width: double.infinity,
+        height: double.infinity,
 
-              children: [
+        decoration: BoxDecoration(
 
-                SizedBox(height: 50),
+          gradient: LinearGradient(
 
-                Text(
-                  "Good Morning",
+            begin: Alignment.bottomCenter,
+            end: Alignment.topLeft,
 
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+            colors: [
+              Colors.black,
+              Colors.green,
+            ],
+
+            stops: [0.5, 1],
+          ),
+        ),
+
+        child: Padding(
+
+          padding: EdgeInsets.only(
+            top: 20,
+            left: 10,
+            right: 10,
+          ),
+
+          child: Column(
+
+            children: [
+
+              GridView.count(
+
+                crossAxisCount: 2,
+
+                shrinkWrap: true,
+
+                physics: NeverScrollableScrollPhysics(),
+
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+
+                childAspectRatio: 3,
+
+                children: [
+
+                  Container(
+
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+
+                    child: Row(
+
+                      children: [
+
+                        ClipRRect(
+
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            bottomLeft: Radius.circular(8),
+                          ),
+
+                          child: Image.asset(
+                            'assets/images/pic1.jpg',
+
+                            width: 60,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        SizedBox(width: 10),
+
+                        Text(
+                          "Today's Top Hits",
+
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                  Container(
 
-                SizedBox(height: 20),
-
-                // FIRST ROW
-
-                Row(
-
-                  children: [
-
-                    Expanded(
-                      child: Container(
-
-                        height: 70,
-
-                        decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        child: Row(
-
-                          children: [
-
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-
-                              child: Image.asset(
-                                'assets/images/pic3.jpg',
-
-                                width: 70,
-                                height: 70,
-
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            SizedBox(width: 10),
-
-                            Text(
-                              "Serenity",
-
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(8),
                     ),
 
-                    SizedBox(width: 10),
+                    child: Row(
 
-                    Expanded(
-                      child: Container(
+                      children: [
 
-                        height: 70,
+                        ClipRRect(
 
-                        decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            bottomLeft: Radius.circular(8),
+                          ),
+
+                          child: Image.asset(
+                            'assets/images/cat.jpg',
+
+                            width: 60,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
                         ),
 
-                        child: Row(
+                        SizedBox(width: 10),
 
-                          children: [
+                        Text(
+                          "Your Playlist",
 
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-
-                              child: Image.asset(
-                                'assets/images/pic2.jpg',
-
-                                width: 70,
-                                height: 70,
-
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            SizedBox(width: 10),
-
-                            Text(
-                              "Ambient Piano",
-
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-
-                SizedBox(height: 10),
-
-                // SECOND ROW
-
-                Row(
-
-                  children: [
-
-                    Expanded(
-                      child: Container(
-
-                        height: 70,
-
-                        decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        child: Row(
-
-                          children: [
-
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-
-                              child: Image.asset(
-                                'assets/images/pic3.jpg',
-
-                                width: 70,
-                                height: 70,
-
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            SizedBox(width: 10),
-
-                            Text(
-                              "Summer Walk",
-
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(width: 10),
-
-                    Expanded(
-                      child: Container(
-
-                        height: 70,
-
-                        decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-
-                        child: Row(
-
-                          children: [
-
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-
-                              child: Image.asset(
-                                'assets/images/pic2.jpg',
-
-                                width: 70,
-                                height: 70,
-
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            SizedBox(width: 10),
-
-                            Text(
-                              "Focus Flow",
-
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 30),
-
-                Text(
-                  "Made for you",
-
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
+                  Container(
 
-                SizedBox(height: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
 
-                SingleChildScrollView(
+                    child: Row(
 
-                  scrollDirection: Axis.horizontal,
+                      children: [
 
-                  child: Row(
+                        ClipRRect(
 
-                    children: [
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            bottomLeft: Radius.circular(8),
+                          ),
 
-                      Container(
+                          child: Image.asset(
+                            'assets/images/cat.jpg',
 
-                        width: 170,
+                            width: 60,
+                            height: double.infinity,
 
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          children: [
-
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-
-                              child: Image.asset(
-                                'assets/images/pic3.jpg',
-
-                                height: 170,
-                                width: 170,
-
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            SizedBox(height: 10),
-
-                            Text(
-                              "Chill Vibes",
-
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            Text(
-                              "Relax and unwind with smooth tracks",
-
-                              style: TextStyle(
-                                color: Colors.white70,
-                              ),
-                            ),
-                          ],
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
 
-                      SizedBox(width: 15),
+                        SizedBox(width: 10),
 
-                      Container(
+                        Text(
+                          "All Time Hits",
 
-                        width: 170,
-
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          children: [
-
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-
-                              child: Image.asset(
-                                'assets/images/pic2.jpg',
-
-                                height: 170,
-                                width: 170,
-
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            SizedBox(height: 10),
-
-                            Text(
-                              "Focus Flow",
-
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            Text(
-                              "Music to help you concentrate",
-
-                              style: TextStyle(
-                                color: Colors.white70,
-                              ),
-                            ),
-                          ],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                  Container(
+
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+
+                    child: Row(
+
+                      children: [
+
+                        ClipRRect(
+
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            bottomLeft: Radius.circular(8),
+                          ),
+
+                          child: Image.asset(
+                            'assets/images/cat.jpg',
+
+                            width: 60,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        SizedBox(width: 10),
+
+                        Text(
+                          "Best",
+
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+
+                    child: Row(
+
+                      children: [
+
+                        ClipRRect(
+
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            bottomLeft: Radius.circular(8),
+                          ),
+
+                          child: Image.asset(
+                            'assets/images/pic1.jpg',
+
+                            width: 60,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        SizedBox(width: 10),
+
+                        Text(
+                          "Daily Explore",
+
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
+          
+            Align(
+              alignment: Alignment.centerLeft,
+              
+              child: Text("Made For You",
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),),
+            )
+
+
+
+
+
+
+
+
+            ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-
-  type: BottomNavigationBarType.fixed,
-
-  backgroundColor: Colors.black,
-
-  selectedItemColor: Colors.green,
-
-  unselectedItemColor: Colors.white70,
-
-  items: [
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: "Home",
-    ),
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.search),
-      label: "Search",
-    ),
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.library_music),
-      label: "Library",
-    ),
-  ],
-),
     );
   }
 }

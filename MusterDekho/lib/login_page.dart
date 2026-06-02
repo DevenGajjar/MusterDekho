@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'spotifyhome.dart';
 
 class LoginPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return Center(
+
       child: Padding(
         padding: EdgeInsets.all(20),
 
@@ -13,19 +16,20 @@ class LoginPage extends StatelessWidget {
 
           children: [
 
-            Text("Log-In",
-            style: TextStyle(color: Colors.green,
-            fontSize:  30,
-            fontWeight: FontWeight.w700,
-            ),
-            
-            ),
-            
+            Text(
+              "Log-In",
 
+              style: TextStyle(
+                color: Colors.green,
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
 
             SizedBox(height: 20),
 
             TextField(
+
               style: TextStyle(color: Colors.white),
 
               decoration: InputDecoration(
@@ -58,6 +62,7 @@ class LoginPage extends StatelessWidget {
               height: 50,
 
               child: FilledButton(
+
                 style: FilledButton.styleFrom(
                   backgroundColor: Colors.green,
 
@@ -67,9 +72,14 @@ class LoginPage extends StatelessWidget {
                 ),
 
                 onPressed: () {
-                  Navigator.push(
+
+                  Navigator.pushReplacement(
+
                     context,
-                    MaterialPageRoute(builder: (context) => spotifyhome()),
+
+                    MaterialPageRoute(
+                      builder: (context) => spotifyhome(),
+                    ),
                   );
                 },
 
