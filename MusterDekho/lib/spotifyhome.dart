@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'settings_page.dart';
 
 class spotifyhome extends StatelessWidget {
   @override
@@ -21,10 +22,16 @@ class spotifyhome extends StatelessWidget {
         ),
 
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 8),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
 
-            child: Icon(Icons.settings, color: Colors.white, size: 30),
+                MaterialPageRoute(builder: (context) => SettingsPage()),
+              );
+            },
+
+            icon: Icon(Icons.settings, color: Colors.white, size: 30),
           ),
         ],
       ),
@@ -44,217 +51,229 @@ class spotifyhome extends StatelessWidget {
           ),
         ),
 
-        child: Padding(
-          padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(top: 25, left: 10, right: 10, bottom: 20),
 
-          child: Column(
-            children: [
-              GridView.count(
-                crossAxisCount: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
 
-                shrinkWrap: true,
+              children: [
+                // ================= GRID SECTION =================
+                GridView.count(
+                  crossAxisCount: 2,
 
-                physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
 
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                  physics: NeverScrollableScrollPhysics(),
 
-                childAspectRatio: 3,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
 
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(8),
+                  childAspectRatio: 3,
+
+                  children: [
+                    // CARD 1
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+
+                            child: Image.asset(
+                              'assets/images/pic1.jpg',
+
+                              width: 60,
+                              height: double.infinity,
+
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+
+                          SizedBox(width: 10),
+
+                          Text(
+                            "Today's Top Hits",
+
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
 
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8),
+                    // CARD 2
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+
+                            child: Image.asset(
+                              'assets/images/cat.jpg',
+
+                              width: 60,
+                              height: double.infinity,
+
+                              fit: BoxFit.cover,
+                            ),
                           ),
 
-                          child: Image.asset(
-                            'assets/images/pic1.jpg',
+                          SizedBox(width: 10),
 
-                            width: 60,
-                            height: double.infinity,
+                          Text(
+                            "Your Playlist",
 
-                            fit: BoxFit.cover,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-
-                        SizedBox(width: 10),
-
-                        Text(
-                          "Today's Top Hits",
-
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8),
-                          ),
-
-                          child: Image.asset(
-                            'assets/images/cat.jpg',
-
-                            width: 60,
-                            height: double.infinity,
-
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-
-                        SizedBox(width: 10),
-
-                        Text(
-                          "Your Playlist",
-
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(8),
+                        ],
+                      ),
                     ),
 
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8),
+                    // CARD 3
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+
+                            child: Image.asset(
+                              'assets/images/cat.jpg',
+
+                              width: 60,
+                              height: double.infinity,
+
+                              fit: BoxFit.cover,
+                            ),
                           ),
 
-                          child: Image.asset(
-                            'assets/images/cat.jpg',
+                          SizedBox(width: 10),
 
-                            width: 60,
-                            height: double.infinity,
+                          Text(
+                            "All Time Hits",
 
-                            fit: BoxFit.cover,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-
-                        SizedBox(width: 10),
-
-                        Text(
-                          "All Time Hits",
-
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8),
-                          ),
-
-                          child: Image.asset(
-                            'assets/images/cat.jpg',
-
-                            width: 60,
-                            height: double.infinity,
-
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-
-                        SizedBox(width: 10),
-
-                        Text(
-                          "Best",
-
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(8),
+                        ],
+                      ),
                     ),
 
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8),
+                    // CARD 4
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+
+                            child: Image.asset(
+                              'assets/images/cat.jpg',
+
+                              width: 60,
+                              height: double.infinity,
+
+                              fit: BoxFit.cover,
+                            ),
                           ),
 
-                          child: Image.asset(
-                            'assets/images/pic1.jpg',
+                          SizedBox(width: 10),
 
-                            width: 60,
-                            height: double.infinity,
+                          Text(
+                            "Best",
 
-                            fit: BoxFit.cover,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-
-                        SizedBox(width: 10),
-
-                        Text(
-                          "Daily Explore",
-
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
 
-              // made for you section===============================================
-              Align(
-                alignment: Alignment.centerLeft,
+                    // CARD 5
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
 
-                child: Text(
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+
+                            child: Image.asset(
+                              'assets/images/pic1.jpg',
+
+                              width: 60,
+                              height: double.infinity,
+
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+
+                          SizedBox(width: 10),
+
+                          Text(
+                            "Daily Explore",
+
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 10),
+
+                // ================= MADE FOR YOU =================
+                Text(
                   "Made For You",
 
                   style: TextStyle(
@@ -263,48 +282,239 @@ class spotifyhome extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
 
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+                SizedBox(height: 15),
 
-                child: Row(
-                  children: [
-                    Container(
-                      width: 170,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
 
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
 
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.asset('assets/images/pic2.jpg'),
-                          ),
+                    children: [
+                      // PLAYLIST 1
+                      Container(
+                        width: 170,
 
-                          SizedBox(width: 5),
-                          Text(
-                            "Graduation",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+
+                              child: Image.asset(
+                                'assets/images/pic2.jpg',
+
+                                height: 170,
+                                width: 170,
+
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            "by Kanye West",
-                            style: TextStyle(fontSize: 10, color: Colors.white),
-                          ),
-                        ],
+
+                            SizedBox(height: 5),
+
+                            Text(
+                              "Graduation",
+
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+
+                            Text(
+                              "by Kanye West",
+
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+
+                      SizedBox(width: 15),
+
+                      // PLAYLIST 2
+                      Container(
+                        width: 170,
+
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+
+                              child: Image.asset(
+                                'assets/images/pic3.jpg',
+
+                                height: 170,
+                                width: 170,
+
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+
+                            SizedBox(height: 5),
+
+                            Text(
+                              "Good Kid M.A.A.D CITY",
+
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+
+                            Text(
+                              "By Kendrik",
+
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(width: 15),
+
+                      // PLAYLIST 3
+                      Container(
+                        width: 170,
+
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+
+                              child: Image.asset(
+                                'assets/images/pic5.jpg',
+
+                                height: 170,
+                                width: 170,
+
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+
+                            SizedBox(height: 5),
+
+                            Text(
+                              "Slim Shaddy",
+
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+
+                            Text(
+                              "By Eminem",
+
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
+      ),
+      bottomSheet: Container(
+        height: 65,
+
+        color: Color.fromARGB(255, 32, 32, 32),
+
+        child: Row(
+          children: [
+            SizedBox(width: 10),
+
+            ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+
+              child: Image.asset(
+                'assets/images/pic2.jpg',
+
+                width: 50,
+                height: 50,
+
+                fit: BoxFit.cover,
+              ),
+            ),
+
+            SizedBox(width: 10),
+
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+
+                children: [
+                  Text(
+                    "Graduation",
+
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  Text(
+                    "Kanye West",
+
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
+
+            Icon(Icons.favorite_border, color: Colors.white),
+
+            SizedBox(width: 15),
+
+            Icon(Icons.play_arrow, color: Colors.white, size: 32),
+
+            SizedBox(width: 15),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+
+        backgroundColor: Colors.black,
+
+        selectedItemColor: Colors.green,
+
+        unselectedItemColor: Colors.white70,
+
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_music),
+            label: "Library",
+          ),
+        ],
       ),
     );
   }
