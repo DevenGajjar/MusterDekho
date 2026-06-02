@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
 class spotifyhome extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       extendBodyBehindAppBar: true,
 
       appBar: AppBar(
-
         backgroundColor: Colors.transparent,
         elevation: 0,
 
@@ -25,54 +21,35 @@ class spotifyhome extends StatelessWidget {
         ),
 
         actions: [
-
           Padding(
             padding: EdgeInsets.only(right: 8),
 
-            child: Icon(
-              Icons.settings,
-              color: Colors.white,
-              size: 30,
-            ),
+            child: Icon(Icons.settings, color: Colors.white, size: 30),
           ),
         ],
       ),
 
       body: Container(
-
         width: double.infinity,
         height: double.infinity,
 
         decoration: BoxDecoration(
-
           gradient: LinearGradient(
-
             begin: Alignment.bottomCenter,
             end: Alignment.topLeft,
 
-            colors: [
-              Colors.black,
-              Colors.green,
-            ],
+            colors: [Colors.black, Colors.green],
 
             stops: [0.5, 1],
           ),
         ),
 
         child: Padding(
-
-          padding: EdgeInsets.only(
-            top: 20,
-            left: 10,
-            right: 10,
-          ),
+          padding: EdgeInsets.only(top: 20, left: 10, right: 10),
 
           child: Column(
-
             children: [
-
               GridView.count(
-
                 crossAxisCount: 2,
 
                 shrinkWrap: true,
@@ -85,20 +62,15 @@ class spotifyhome extends StatelessWidget {
                 childAspectRatio: 3,
 
                 children: [
-
                   Container(
-
                     decoration: BoxDecoration(
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(8),
                     ),
 
                     child: Row(
-
                       children: [
-
                         ClipRRect(
-
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -128,18 +100,14 @@ class spotifyhome extends StatelessWidget {
                     ),
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(8),
                     ),
 
                     child: Row(
-
                       children: [
-
                         ClipRRect(
-
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -169,18 +137,14 @@ class spotifyhome extends StatelessWidget {
                     ),
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(8),
                     ),
 
                     child: Row(
-
                       children: [
-
                         ClipRRect(
-
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -210,18 +174,14 @@ class spotifyhome extends StatelessWidget {
                     ),
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(8),
                     ),
 
                     child: Row(
-
                       children: [
-
                         ClipRRect(
-
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -251,18 +211,14 @@ class spotifyhome extends StatelessWidget {
                     ),
                   ),
                   Container(
-
                     decoration: BoxDecoration(
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(8),
                     ),
 
                     child: Row(
-
                       children: [
-
                         ClipRRect(
-
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -294,25 +250,58 @@ class spotifyhome extends StatelessWidget {
                 ],
               ),
 
-          
-            Align(
-              alignment: Alignment.centerLeft,
-              
-              child: Text("Made For You",
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),),
-            )
+              // made for you section===============================================
+              Align(
+                alignment: Alignment.centerLeft,
 
+                child: Text(
+                  "Made For You",
 
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
 
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
 
+                child: Row(
+                  children: [
+                    Container(
+                      width: 170,
 
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
 
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: Image.asset('assets/images/pic2.jpg'),
+                          ),
 
-
+                          SizedBox(width: 5),
+                          Text(
+                            "Graduation",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            "by Kanye West",
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
