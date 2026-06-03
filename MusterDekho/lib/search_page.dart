@@ -1,74 +1,265 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'settings_page.dart';
+import 'Settings_Page.dart';
 
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
 
-  body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topLeft,
 
-    width: double.infinity,
-    height: double.infinity,
+            colors: [Colors.black, Colors.green],
 
-    decoration: BoxDecoration(
-
-            gradient: LinearGradient(
-
-              begin: Alignment.bottomCenter,
-              end: Alignment.topLeft,
-
-              colors: [
-                Colors.black,
-                Colors.green,
-              ],
-
-              stops: [0.5, 1],
-            ),
+            stops: [0.5, 1],
           ),
+        ),
 
-      child: SafeArea(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(top: 10, left: 10, right: 10),
 
-  child: Padding(
+            child: Column(
+              children: [
+                // TOP BAR
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-  padding: EdgeInsets.only(
-    top: 10,
-    left: 10,
-    right: 10,
-  ),
+                  children: [
+                    Text(
+                      "Search",
 
-  child: Row(
-      
-      crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
 
-        children: [
-          Text(
-            "Search",
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
 
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+                          MaterialPageRoute(
+                            builder: (context) => SettingsPage(),
+                          ),
+                        );
+                      },
 
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
+                      icon: Icon(Icons.settings, color: Colors.white, size: 30),
+                    ),
+                  ],
+                ),
 
-                MaterialPageRoute(builder: (context) => SettingsPage()),
-              );
-            },
+                // SEARCH BAR
+                SizedBox(height: 20),
 
-            icon: Icon(Icons.settings, color: Colors.white, size: 30),
-          ),
-        ],
-      ),
+                TextField(
+                  style: TextStyle(color: Colors.white),
+
+                  decoration: InputDecoration(
+                    hintText: "What do you want to listen to?",
+
+                    hintStyle: TextStyle(color: Colors.white54),
+
+                    prefixIcon: Icon(Icons.search, color: Colors.white),
+
+                    filled: true,
+
+                    fillColor: Colors.black54,
+
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+
+                      borderSide: BorderSide.none,
+                    ),
                   ),
+                ),
+
+
+                // made for you
+                SizedBox(height: 20),
+
+                GridView.count(
+
+                  physics: NeverScrollableScrollPhysics(),
+
+
+                  crossAxisCount: 2,
+
+                  shrinkWrap: true,
+
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+
+                  childAspectRatio: 2,
+
+                  children: [
+                    // card - 1
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+
+                          child: Image.asset(
+                            'assets/images/pcrc1.jpg',
+
+                            width: double.infinity,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+
+                              colors: [
+                                Colors.black.withOpacity(0.5),
+
+                                Colors.transparent,
+
+                                Colors.black.withOpacity(0.4),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.all(10),
+
+                          child: Text(
+                            "Pop",
+
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // card - 2
+                                        Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+
+                          child: Image.asset(
+                            'assets/images/pcrc2.jpg',
+
+                            width: double.infinity,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+
+                              colors: [
+                                Colors.black.withOpacity(0.5),
+
+                                Colors.transparent,
+
+                                Colors.black.withOpacity(0.4),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.all(10),
+
+                          child: Text(
+                            "Indie",
+
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    //card - 3
+                                        Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+
+                          child: Image.asset(
+                            'assets/images/pcrc3.jpg',
+
+                            width: double.infinity,
+                            height: double.infinity,
+
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+
+                              colors: [
+                                Colors.black.withOpacity(0.5),
+
+                                Colors.transparent,
+
+                                Colors.black.withOpacity(0.4),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.all(10),
+
+                          child: Text(
+                            "Bollywood",
+
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-  ),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'search_page.dart';
-import 'library_page.dart';
-import 'settings_page.dart';
+import 'Settings_Page.dart';
+import 'Profile_Page.dart';
 
 class spotifyhome extends StatefulWidget {
 
@@ -19,7 +19,7 @@ class _spotifyhomeState extends State<spotifyhome> {
 
     SearchPage(),
 
-    LibraryPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -138,8 +138,8 @@ class _spotifyhomeState extends State<spotifyhome> {
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_music),
-            label: "Your Library",
+            icon: Icon(Icons.person_3_rounded),
+            label: "Your Profile",
           ),
         ],
       ),
