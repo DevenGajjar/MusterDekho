@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseTestPage extends StatefulWidget {
   @override
@@ -13,23 +14,31 @@ class _FirebaseTestPageState extends State<FirebaseTestPage> {
 
   Future<void> registerUser() async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
+      UserCredential userCredential =
+          await FirebaseAuth.instance
+              .createUserWithEmailAndPassword(
+                email: emailController.text.trim(),
+                password: passwordController.text.trim(),
+              );
 
-      print("Account Created");   
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.uid)
+          .set({
+            "email": emailController.text.trim(),
+            "uid": userCredential.user!.uid,
+            "name": "Deven",
+          });
+
+      print("Account Created");
 
       print("Email: ${userCredential.user?.email}");
 
       print("UID: ${userCredential.user?.uid}");
     } on FirebaseAuthException catch (e) {
       print("Firebase Error: ${e.message}");
-    } catch (e) {
-      print(e);
     }
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {
