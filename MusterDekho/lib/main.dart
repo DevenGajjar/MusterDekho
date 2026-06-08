@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'firebase_test_page.dart';
 import 'login_page.dart';
-import 'spotifyhome.dart';
 
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(MySpotifyApp());
 }
 
@@ -15,32 +24,10 @@ class MySpotifyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
 
-      home: Scaffold(
 
-        body: Container(
-
-          width: double.infinity,
-          height: double.infinity,
-
-          decoration: BoxDecoration(
-
-            gradient: LinearGradient(
-
-              begin: Alignment.bottomCenter,
-              end: Alignment.topLeft,
-
-              colors: [
-                Colors.black,
-                Colors.green,
-              ],
-
-              stops: [0.5, 1],
-            ),
-          ),
-
-          child: LoginPage(),
-        ),
-      ),
+// just for firebase first time checking...
+      // home: FirebaseTestPage(),
+      home: LoginPage(),
     );
   }
 }
