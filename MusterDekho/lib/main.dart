@@ -28,8 +28,8 @@ class MySpotifyApp extends StatelessWidget {
 
 
 // just for firebase first time checking...
-      home: FirebaseTestPage(),
-      // home: LoginPage(),
+      // home: FirebaseTestPage(),
+      home: LoginPage(),
     );
   }
 }

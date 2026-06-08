@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'spotifyhome.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'spotifyhome.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -14,34 +16,55 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> loginUser() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-    } on FirebaseAuthException catch (e) {
-      try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim(),
-        );
-      } on FirebaseAuthException catch (createError) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(createError.message ?? "Authentication Failed"),
-          ),
-        );
-        print(createError.code);
-        print(createError.message);
-        return;
-      }
-    }
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => spotifyhome(),
-      ),
-    );
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.uid)
+          .set({
+        "email": emailController.text.trim(),
+        "uid": userCredential.user!.uid,
+        "name": "Deven",
+      });
+
+      print("Account Created");
+      print("Email: ${userCredential.user?.email}");
+      print("UID: ${userCredential.user?.uid}");
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => spotifyhome(),
+        ),
+      );
+    } on FirebaseAuthException catch (e) {
+      print("Firebase Error: ${e.message}");
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.message ?? "Authentication Failed"),
+        ),
+      );
+    } catch (e) {
+      print("Error: $e");
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
